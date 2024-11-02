@@ -30,6 +30,10 @@
     }
 }
 
+.titulo {
+    color: #CC5147;
+}
+
 .navbar {
     background-color: #F4F1DE !important; /* Cambia el color de fondo */
 }
