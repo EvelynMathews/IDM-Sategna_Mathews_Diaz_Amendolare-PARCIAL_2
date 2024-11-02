@@ -69,3 +69,16 @@
     border-color: #CC5147;
 }
 
+/* ------------SECCION PRODUCTOS---------------- */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Espacio entre las cards */
+    justify-content: center;
+}
+
+.card {
+    flex: 1 1 18rem; /* Permite que las cards se ajusten a 18rem pero crezcan si hay espacio */
+    max-width: 18rem;
+}
