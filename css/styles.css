@@ -36,17 +36,17 @@
 }
 
 .navbar {
-    background-color: #F4F1DE !important; /* Cambia el color de fondo */
+    background-color: #F4F1DE; /* Cambia el color de fondo */
 }
 
 /* Cambiar el color del texto en la navbar */
 .navbar .nav-link {
-    color: #24272B !important; /* Color del texto normal */
+    color: #24272B; /* Color del texto normal */
 }
 
 /* Cambiar el color del texto de la sección seleccionada */
 .navbar .nav-link.active {
-    color: #CC5147 !important; /* Color del texto de la sección seleccionada */
+    color: #CC5147; /* Color del texto de la sección seleccionada */
 }
 
 /* Cambiar el color del ícono del carrito */
