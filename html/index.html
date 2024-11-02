@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pick & Pack - Inicio</title>
+  
+  <!-- Bootstrap CSS (versión 5.2.3) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../img/logo-placeholder.png" alt="Logo de Pick & Pack" style="height: 40px; width: 40px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="seccion-libre.html">Sección Libre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+        <!-- Ícono de Carrito con márgenes ajustados -->
+        <div class="btn btn-outline-light order-1 order-lg-2 navbar-cart-icon">
+          <i class="bi bi-cart"></i>
+        </div>
+        <!-- Formulario de búsqueda -->
+        <form class="d-flex order-2 order-lg-1" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel de Encabezado -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img/placeholder.png" class="d-block w-100" alt="Explora Nuestras Cajas">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/placeholder.png" class="d-block w-100" alt="Regalos Perfectos">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/placeholder.png" class="d-block w-100" alt="Tu Estilo, Tu Caja, Tu Regalo">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+
+  <!-- Descripción de la empresa -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Sobre Pick & Pack</h2>
+    <p class="text-center">
+      <strong>Pick & Pack</strong> nació con el objetivo de <em>transformar la experiencia de regalar</em>, ofreciendo <strong>cajas personalizables</strong> que permiten a cada cliente expresar su estilo y emociones. Creemos que <em>cada detalle en un regalo cuenta</em>, y queremos ofrecer a nuestros clientes la oportunidad de crear <strong>experiencias inolvidables</strong>.
+    </p>
+    <p class="text-center">
+      Nuestra filosofía se centra en la <strong>creatividad, calidad y accesibilidad</strong>. Nos esforzamos por hacer que cada caja de regalo se adapte a las <em>necesidades y deseos</em> de quien la compra y de quien la recibe. En <strong>Pick & Pack</strong>, estamos comprometidos en hacer de cada obsequio una <em>experiencia especial y significativa</em>.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white mt-5 py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        
+        <!-- Foto de perfil -->
+        <div class="col-md-3 text-center mb-3 mb-md-0">
+          <img src="../img/placeholder-profile-pic.png" alt="Foto de perfil" class="img-fluid rounded-circle" style="width: 250px;">
+        </div>
+        
+        <!-- Información personal -->
+        <div class="col-md-6 text-center text-md-start">
+          <h5>Nombre Apellido</h5>
+          <p>Edad: xx años</p>
+          <p>Correo: nombre.apellido@example.com</p>
+        </div>
+        
+        <!-- Redes sociales -->
+        <div class="col-md-3 text-center text-md-end">
+          <h5>Redes Sociales</h5>
+          <a href="https://www.linkedin.com/" target="_blank" class="text-white me-3">
+            <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+          </a>
+        </div>
+  
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Bootstrap JavaScript Bundle con Popper.js (versión 5.2.3) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>

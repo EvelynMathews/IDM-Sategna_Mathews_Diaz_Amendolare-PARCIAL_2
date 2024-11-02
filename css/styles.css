@@ -1,0 +1,31 @@
+.text-center {
+    font-size: 1rem;
+}
+
+
+
+/* Margen inferior en pantallas más chicas */
+@media (max-width: 991.98px) {
+    .btn-outline-light {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Margen inferior en el formulario de búsqueda solo en pantallas pequeñas */
+@media (max-width: 991.98px) {
+    .navbar .d-flex {
+        margin-bottom: 1rem;
+        /* Ajusta el margen según necesites */
+    }
+}
+
+/* Margen derecho en pantallas grandes */
+@media (min-width: 992px) {
+    .btn-outline-light {
+        margin-right: 2rem;
+    }
+
+    .btn-outline-light {
+        margin-left: 1rem;
+    }
+}
