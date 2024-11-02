@@ -42,7 +42,11 @@
 .titulo {
     color: #CC5147;
     font-weight: bold;
+<<<<<<< HEAD
     font-family: "Merriweather";
+=======
+    font-size: 40px;
+>>>>>>> 1ff2205f75440535a0a73342e41f3e352f37fca8
 }
 
 .navbar {
