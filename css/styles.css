@@ -28,6 +28,10 @@
     .btn-outline-light {
         margin-left: 1rem;
     }
+
+    .borde{
+        margin-left: 1rem;
+    }
 }
 
 .titulo {
@@ -52,3 +56,8 @@
 .navbar-cart-icon i {
     color: #24272B !important; /* Color del icono del carrito */
 }
+
+.borde{
+    border-color: #CC5147;
+}
+
