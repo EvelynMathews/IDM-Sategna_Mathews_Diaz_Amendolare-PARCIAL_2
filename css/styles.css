@@ -49,6 +49,7 @@
     .borde{
         margin-left: 1rem;
     }
+
 }
 
 .titulo {
@@ -79,6 +80,12 @@
 
 .borde{
     border-color: #CC5147;
+    
+}
+
+.borde-prueba{
+    border-color: #CC5147;
+    background-color: #CC5147;
 }
 
 /* ------------SECCION PRODUCTOS---------------- */
@@ -93,4 +100,12 @@
 .card {
     flex: 1 1 22rem; /* Permite que las cards se ajusten a 18rem pero crezcan si hay espacio */
     max-width: 22rem;
+}
+
+
+
+/* ------------SECCION CONTACTO---------------- */
+.button-form{
+    background-color: #CC5147;
+    border: #CC5147;
 }
