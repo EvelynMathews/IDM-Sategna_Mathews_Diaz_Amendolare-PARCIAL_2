@@ -7,7 +7,19 @@
     font-size: 1rem;
 }
 
+/* Parallax de las fotos de index*/
+.col-12 {
+    transition: 500ms;
+    filter: drop-shadow(0 4px 10px #131313);
+}
+.col-12:hover {
+    transform: scale(1.1);
+}
 
+.btn-lg {
+    background-color: #CC5147;
+    color: #F4F1DE;
+}
 
 /* Margen inferior en pantallas más chicas */
 @media (max-width: 991.98px) {
@@ -62,7 +74,7 @@
 
 /* Cambiar el color del ícono del carrito */
 .navbar-cart-icon i {
-    color: #24272B !important; /* Color del icono del carrito */
+    color: #24272B; /* Color del icono del carrito */
 }
 
 .borde{
