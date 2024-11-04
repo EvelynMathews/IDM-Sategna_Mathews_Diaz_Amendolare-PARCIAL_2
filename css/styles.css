@@ -21,6 +21,10 @@
     color: #F4F1DE;
 }
 
+.logo {
+    height: 3rem;
+}
+
 /* Margen inferior en pantallas más chicas */
 @media (max-width: 991.98px) {
     .btn-outline-light {
