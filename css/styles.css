@@ -74,7 +74,8 @@
 
 /* Cambiar el color del texto de la sección seleccionada */
 .navbar .nav-link.active {
-    color: #CC5147; /* Color del texto de la sección seleccionada */
+    color: #CC5147;
+    font-weight: 500; /* Color del texto de la sección seleccionada */
 }
 
 /* Cambiar el color del ícono del carrito */
@@ -90,6 +91,11 @@
 .borde-prueba{
     border-color: #CC5147;
     background-color: #CC5147;
+}
+
+.relleno{
+    background-color: #CC5147;
+    color: #F4F1DE;
 }
 
 /* ------------SECCION PRODUCTOS---------------- */
