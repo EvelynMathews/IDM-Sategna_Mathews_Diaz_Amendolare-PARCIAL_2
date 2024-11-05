@@ -1,10 +1,11 @@
+// cart.js
 // Seleccionamos el contenedor donde se mostrarán los elementos del carrito
 const cartModalBody = document.querySelector("#cartModal .modal-body");
 const cartItemsList = document.getElementById("cartItems");
 const totalAmountElement = document.createElement('div'); // Elemento para el monto total
-let cartItems = [];
+let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Función para mostrar la notificación
+// Función para mostrar la notificación de éxito
 function showNotification(message) {
     const notification = document.createElement('div');
     notification.className = 'alert alert-success alert-dismissible fade show';
@@ -33,8 +34,18 @@ function calculateTotal() {
 }
 
 // Función para actualizar el contenido del carrito en el modal
+// Función para actualizar el contenido del carrito en el modal
 function updateCartModal() {
+    const cartModalBody = document.querySelector("#cartModal .modal-body");
+    const cartItemsList = document.getElementById("cartItems");
+    const totalAmountElement = document.createElement('div');
+    
+    // Revisa si el modal y la lista de items existen
+    if (!cartModalBody || !cartItemsList) return;
+
     cartItemsList.innerHTML = ''; // Limpiar la lista
+
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
     if (cartItems.length === 0) {
         cartModalBody.innerHTML = '<p>El carrito está actualmente vacío.</p>';
@@ -42,7 +53,6 @@ function updateCartModal() {
         cartModalBody.innerHTML = ''; // Limpiar mensaje de vacío si hay productos
         cartItemsList.classList.add("list-group");
 
-        // Añadir cada producto al carrito
         cartItems.forEach(item => {
             const itemElement = document.createElement('li');
             itemElement.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
@@ -50,8 +60,7 @@ function updateCartModal() {
             cartItemsList.appendChild(itemElement);
         });
 
-        // Añadir el monto total al final de la lista
-        const totalAmount = calculateTotal();
+        const totalAmount = cartItems.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2);
         totalAmountElement.classList.add('text-end', 'mt-3', 'fw-bold');
         totalAmountElement.innerHTML = `Total: ARS $${totalAmount}`;
         cartModalBody.appendChild(cartItemsList); // Añadir la lista al modal
@@ -59,29 +68,39 @@ function updateCartModal() {
     }
 }
 
-// Evento para cada botón "Agregar al carrito"
-document.querySelectorAll('.add-to-cart').forEach(button => {
+
+ // Evento para agregar productos desde el botón de agregar al carrito
+ document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
         const itemName = button.getAttribute('data-name');
         const itemPrice = button.getAttribute('data-price');
 
-        // Agregar el item al carrito
-        cartItems.push({ name: itemName, price: itemPrice });
-
-        // Actualizar el modal del carrito y mostrar notificación
-        updateCartModal();
-        showNotification("Producto agregado exitosamente.");
+        if (itemName && itemPrice) {
+            cartItems.push({ name: itemName, price: itemPrice });
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            showNotification("Producto agregado exitosamente.");
+            updateCartModal();
+        } else {
+            console.error("No se encontró el nombre o precio del producto.");
+        }
     });
 });
 
 // Evento para el botón "Vaciar Carrito"
 document.getElementById('clearCart').addEventListener('click', () => {
     cartItems = []; // Vaciar el carrito
+    localStorage.removeItem("cart");
+    localStorage.setItem("cart", JSON.stringify(cartItems));
     updateCartModal(); // Actualizar el modal para reflejar el cambio
 });
 
 // Actualizar el carrito cada vez que se abre el modal
-document.getElementById('cartModal').addEventListener('show.bs.modal', updateCartModal);
-
-
-
+// **Agrega este código al final de tu archivo cart.js**
+// Actualizar el carrito cada vez que se abre el modal
+document.addEventListener("DOMContentLoaded", () => {
+    // Actualizar el carrito cada vez que se abre el modal
+    const cartModal = document.getElementById('cartModal');
+    if (cartModal) {
+        cartModal.addEventListener('show.bs.modal', updateCartModal);
+    }
+});
