@@ -56,9 +56,7 @@
 
 }
 
-/* TRANSICIÓN */
-/* Transición de entrada suave */
-/* Transición de opacidad para una entrada y salida suave */
+/* TRANSICIÓN DE ENTRADA */
 .fade-in {
     opacity: 0;
     animation: fadeInEffect 0.15s ease-in forwards; /* Entrada rápida */
