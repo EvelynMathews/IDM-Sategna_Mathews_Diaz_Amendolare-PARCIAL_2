@@ -82,3 +82,6 @@ document.getElementById('clearCart').addEventListener('click', () => {
 
 // Actualizar el carrito cada vez que se abre el modal
 document.getElementById('cartModal').addEventListener('show.bs.modal', updateCartModal);
+
+
+

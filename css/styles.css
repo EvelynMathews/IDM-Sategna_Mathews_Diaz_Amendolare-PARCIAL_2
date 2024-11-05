@@ -56,6 +56,41 @@
 
 }
 
+/* TRANSICIÓN */
+/* Transición de entrada suave */
+/* Transición de opacidad para una entrada y salida suave */
+.fade-in {
+    opacity: 0;
+    animation: fadeInEffect 0.15s ease-in forwards; /* Entrada rápida */
+}
+
+.fade-out {
+    animation: fadeOutEffect 0.1s ease-out forwards; /* Salida rápida */
+}
+
+/* Animación de entrada */
+@keyframes fadeInEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animación de salida */
+@keyframes fadeOutEffect {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+
+
 .titulo {
     color: #CC5147;
     font-weight: bold;
@@ -112,6 +147,13 @@
     max-width: 22rem;
 }
 
+/* Estilos para la notificación flotante */
+.notification-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+}
 
 
 /* ------------SECCION CONTACTO---------------- */
@@ -119,3 +161,32 @@
     background-color: #CC5147;
     border: #CC5147;
 }
+
+/* Estilo para el modal de éxito */
+#successModal .modal-content {
+    background-color: #d4eddae1; 
+    color: #26833c;              
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;              
+}
+
+#successModal .modal-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#successModal .modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: none;
+}
+
+#successModal .btn-close {
+    color: #155724;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
