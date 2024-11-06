@@ -191,25 +191,23 @@
 
 /* ------------SECCION DETALLE DEL PRODUCTO---------------- */
 
-
-/* Estilo del contenedor de opciones de color */
 .color-option-container {
     display: flex;
     gap: 8px;
 }
 
-/* Estilo para el círculo de color */
 .color-option-circle {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
+    border: 2px solid #ccc;
     cursor: pointer;
-    border: 2px solid transparent;
+    display: inline-block;
     transition: border 0.2s ease;
 }
 
-/* Agrega un borde resaltado cuando el color está seleccionado */
+/* Agrega un borde negro más grueso cuando el color está seleccionado */
 .color-option-circle.selected {
-    border-color: #000; /* Cambia el borde para el color seleccionado */
+    border-color: #000;
+    border-width: 2px;
 }
-

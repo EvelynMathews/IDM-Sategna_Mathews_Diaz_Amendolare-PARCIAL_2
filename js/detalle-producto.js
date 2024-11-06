@@ -24,8 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p class="card-text"><strong>Precio:</strong> ARS $${selectedProduct.precio}</p>
                         <p class="card-text"><strong>Fecha de Entrega:</strong> ${selectedProduct.fechaEntrega}</p>
                         <p class="card-text"><strong>Disponibilidad:</strong> ${selectedProduct.stock ? "En stock" : "Agotado"}</p>
+                        
                         <p class="card-text"><strong>Color:</strong></p>
                         <div class="color-option-container">${colorOptions}</div> <!-- Opciones de color -->
+                        
+                        <p class="card-text mt-3"><strong>Mensaje Personalizado:</strong></p>
+                        <textarea id="personalMessage" class="form-control mb-3" rows="3" placeholder="Escribe un mensaje especial para el destinatario..."></textarea>
+                        
                         <button class="btn btn-primary mt-3 add-to-cart" data-name="${selectedProduct.nombre}" data-price="${selectedProduct.precio}">Agregar al carrito</button>
                     </div>
                 </div>
@@ -42,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 // Guardar el color seleccionado
                 selectedColor = circle.getAttribute("data-color");
+                console.log("Color seleccionado:", selectedColor); // Verificar el color en la consola
             });
         });
 
@@ -49,6 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".add-to-cart").addEventListener("click", () => {
             const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
             
+            // Obtener el mensaje personalizado
+            const personalMessage = document.getElementById("personalMessage").value;
+
             // Verificar si el producto ya existe en el carrito
             const productIndex = cartItems.findIndex(item => item.name === selectedProduct.nombre && item.color === selectedColor);
             
@@ -58,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     price: selectedProduct.precio,
                     image: selectedProduct.imagen,
                     color: selectedColor || "No especificado", 
+                    message: personalMessage || "Sin mensaje"  // Guardar el mensaje personalizado
                 });
 
                 // Guardar en localStorage
