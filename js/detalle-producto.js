@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedColor = null;
 
     if (selectedProduct) {
-        // Generar opciones de color
+        // opciones de color
         let colorOptions = "";
         if (selectedProduct.colores && selectedProduct.colores.length > 0) {
             colorOptions = selectedProduct.colores.map((color) => `
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 showNotification("Este producto ya está en el carrito.");
             }
-            
+
             updateCartModal();
         });
     } else {
