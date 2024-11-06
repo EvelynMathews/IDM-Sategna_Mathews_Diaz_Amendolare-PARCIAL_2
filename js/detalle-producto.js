@@ -48,15 +48,26 @@ document.addEventListener("DOMContentLoaded", () => {
         // Evento para el botón "Agregar al carrito"
         document.querySelector(".add-to-cart").addEventListener("click", () => {
             const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-            cartItems.push({
-                name: selectedProduct.nombre,
-                price: selectedProduct.precio,
-                image: selectedProduct.imagen,
-                color: selectedColor || "No especificado", 
-            });
+            
+            // Verificar si el producto ya existe en el carrito
+            const productIndex = cartItems.findIndex(item => item.name === selectedProduct.nombre && item.color === selectedColor);
+            
+            if (productIndex === -1) { // Solo agregar si no existe
+                cartItems.push({
+                    name: selectedProduct.nombre,
+                    price: selectedProduct.precio,
+                    image: selectedProduct.imagen,
+                    color: selectedColor || "No especificado", 
+                });
 
-            localStorage.setItem("cart", JSON.stringify(cartItems));
-            showNotification("Producto agregado exitosamente.");
+                // Guardar en localStorage
+                localStorage.setItem("cart", JSON.stringify(cartItems));
+                showNotification("Producto agregado exitosamente.");
+            } else {
+                showNotification("Este producto ya está en el carrito.");
+            }
+            
+            // Actualizar el modal del carrito
             updateCartModal();
         });
     } else {
