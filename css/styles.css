@@ -188,3 +188,28 @@
     top: 15px;
 }
 
+
+/* ------------SECCION DETALLE DEL PRODUCTO---------------- */
+
+
+/* Estilo del contenedor de opciones de color */
+.color-option-container {
+    display: flex;
+    gap: 8px;
+}
+
+/* Estilo para el círculo de color */
+.color-option-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.2s ease;
+}
+
+/* Agrega un borde resaltado cuando el color está seleccionado */
+.color-option-circle.selected {
+    border-color: #000; /* Cambia el borde para el color seleccionado */
+}
+
