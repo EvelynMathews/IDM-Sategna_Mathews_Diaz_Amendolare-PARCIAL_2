@@ -1,4 +1,4 @@
-// Array de productos (ejemplo)
+// Array de productos
 const productos = [
     {
         nombre: "Caja Romántica",
@@ -101,8 +101,8 @@ const productos = [
         id: 9,
     }
 ];
-  
-  document.querySelectorAll('.product-detail').forEach((button) => {
+
+document.querySelectorAll('.product-detail').forEach((button) => {
     button.addEventListener('click', (event) => {
         const id = button.getAttribute('data-id');
         const selectedProduct = productos.find(p => id == p.id);
@@ -110,4 +110,3 @@ const productos = [
     });
 });
 
-  

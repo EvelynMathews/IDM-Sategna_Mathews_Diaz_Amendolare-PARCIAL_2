@@ -1,72 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     font-family: "Work Sans";
 }
+
 .text-center {
     font-size: 1rem;
 }
 
-/* Parallax de las fotos de index*/
-.col-12 {
-    transition: 500ms;
-    filter: drop-shadow(0 4px 10px #131313);
-}
-.col-12:hover {
-    transform: scale(1.1);
-}
-
-.btn-lg {
-    background-color: #CC5147;
-    color: #F4F1DE;
+/* Estilos para títulos y colores principales */
+.titulo {
+    color: #CC5147;
+    font-weight: bold;
+    font-family: "Merriweather";
+    font-size: 40px;
 }
 
 .logo {
     height: 3rem;
 }
 
-/* Margen inferior en pantallas más chicas */
+/* Navbar */
+.navbar {
+    background-color: #F4F1DE;
+}
+
+.navbar .nav-link {
+    color: #24272B;
+}
+
+.navbar .nav-link.active {
+    color: #CC5147;
+    font-weight: 500;
+}
+
+.navbar-cart-icon i {
+    color: #24272B;
+}
+
+/* Botones y bordes */
+.btn-lg,
+.button-form {
+    background-color: #CC5147;
+    color: #F4F1DE;
+    border: #CC5147;
+}
+
+.borde,
+.borde-prueba {
+    border-color: #CC5147;
+}
+
+.borde-prueba {
+    background-color: #CC5147;
+}
+
+.relleno {
+    background-color: #CC5147;
+    color: #F4F1DE;
+}
+
+/* Estilos responsive */
 @media (max-width: 991.98px) {
     .btn-outline-light {
         margin-bottom: 1rem;
     }
-}
 
-/* Margen inferior en el formulario de búsqueda solo en pantallas pequeñas */
-@media (max-width: 991.98px) {
     .navbar .d-flex {
         margin-bottom: 1rem;
-        /* Ajusta el margen según necesites */
     }
 }
 
-/* Margen derecho en pantallas grandes */
 @media (min-width: 992px) {
     .btn-outline-light {
-        margin-right: 2rem;
+        margin: 0 1rem;
     }
 
-    .btn-outline-light {
+    .borde {
         margin-left: 1rem;
     }
-
-    .borde{
-        margin-left: 1rem;
-    }
-
 }
 
-/* TRANSICIÓN DE ENTRADA */
+/* Efecto de Parallax */
+.col-12 {
+    transition: 500ms;
+    filter: drop-shadow(0 4px 10px #131313);
+}
+
+.col-12:hover {
+    transform: scale(1.1);
+}
+
+/* Animaciones */
 .fade-in {
     opacity: 0;
-    animation: fadeInEffect 0.15s ease-in forwards; /* Entrada rápida */
+    animation: fadeInEffect 0.15s ease-in forwards;
 }
 
 .fade-out {
-    animation: fadeOutEffect 0.1s ease-out forwards; /* Salida rápida */
+    animation: fadeOutEffect 0.1s ease-out forwards;
 }
 
-/* Animación de entrada */
 @keyframes fadeInEffect {
     from {
         opacity: 0;
@@ -76,7 +110,6 @@
     }
 }
 
-/* Animación de salida */
 @keyframes fadeOutEffect {
     from {
         opacity: 1;
@@ -86,87 +119,51 @@
     }
 }
 
-
-
-
-.titulo {
-    color: #CC5147;
-    font-weight: bold;
-    font-family: "Merriweather";
-    font-size: 40px;
+/* INDEX - IMÁGENES */
+.contenedor1 {
+    width: 100%;
+    margin: 0 auto;
+}
+@media (min-width: 1200px) {
+    .contenedor1 {
+        max-width: 1000px;
+    }
 }
 
-.navbar {
-    background-color: #F4F1DE; /* Cambia el color de fondo */
-}
-
-/* Cambiar el color del texto en la navbar */
-.navbar .nav-link {
-    color: #24272B; /* Color del texto normal */
-}
-
-/* Cambiar el color del texto de la sección seleccionada */
-.navbar .nav-link.active {
-    color: #CC5147;
-    font-weight: 500; /* Color del texto de la sección seleccionada */
-}
-
-/* Cambiar el color del ícono del carrito */
-.navbar-cart-icon i {
-    color: #24272B; /* Color del icono del carrito */
-}
-
-.borde{
-    border-color: #CC5147;
-    
-}
-
-.borde-prueba{
-    border-color: #CC5147;
-    background-color: #CC5147;
-}
-
-.relleno{
-    background-color: #CC5147;
-    color: #F4F1DE;
-}
-
-/* ------------SECCION PRODUCTOS---------------- */
-
+/*  SECION PRODUCTOS */
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem; /* Espacio entre las cards */
+    gap: 1rem;
     justify-content: center;
 }
 
 .card {
-    flex: 1 1 22rem; /* Permite que las cards se ajusten a 18rem pero crezcan si hay espacio */
+    flex: 1 1 22rem;
     max-width: 22rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-/* Estilos para la notificación flotante */
-.notification-alert {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1050;
+.card .card-img-top {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
 }
 
-
-/* ------------SECCION CONTACTO---------------- */
-.button-form{
-    background-color: #CC5147;
-    border: #CC5147;
+.card-body {
+    padding: 20px;
 }
 
-/* Estilo para el modal de éxito */
+/* SECCIÓN CONTACTO */
 #successModal .modal-content {
-    background-color: #d4eddae1; 
-    color: #26833c;              
+    background-color: #d4eddae1;
+    color: #26833c;
     border-radius: 8px;
     text-align: center;
-    padding: 20px;              
+    padding: 20px;
 }
 
 #successModal .modal-title {
@@ -188,11 +185,7 @@
     top: 15px;
 }
 
-
-/* ------------SECCION DETALLE DEL PRODUCTO---------------- */
-
-
-/* Centrar la tarjeta en la página */
+/* SECCIÓN DETALLE DEL PRODUCTO */
 #productDetailContent {
     display: flex;
     justify-content: center;
@@ -201,90 +194,6 @@
     padding: 20px;
 }
 
-/* Estilo general para la tarjeta */
-.card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-/* Layout vertical (por defecto para pantallas pequeñas) */
-.card .card-img-top {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
-}
-
-.card-body {
-    padding: 20px;
-}
-
-/* Estructura en columnas para pantallas medianas y grandes en productos-detalle */
-@media (min-width: 768px) {
-    .product-detail-card {
-        display: flex;
-        flex-direction: row;
-        align-content: center;
-        max-width: 800px;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .product-detail-card .card-img-top {
-        width: 50%;
-        height: auto;
-        object-fit: cover;
-        border-right: 1px solid #ddd;
-        border-bottom: none;
-    }
-
-    .product-detail-card-body {
-        width: 50%;
-        padding: 20px;
-    }
-}
-
-
-
-.color-option-container {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.color-option-circle {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    cursor: pointer;
-    display: inline-block;
-    transition: border 0.2s ease;
-}
-
-/* Agrega un borde negro más grueso cuando el color está seleccionado */
-.color-option-circle.selected {
-    border-color: #000;
-    border-width: 2px;
-}
-
-
-
-/* ------------ Estilos para el Detalle del Producto ------------- */
-
-/* ------------SECCION DETALLE DEL PRODUCTO---------------- */
-
-/* Centrar el contenedor en la página */
-#productDetailContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-/* Estilo general para la tarjeta en el detalle del producto */
 .product-detail-card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -292,36 +201,33 @@
     overflow: hidden;
 }
 
-/* Layout vertical (por defecto para pantallas pequeñas) */
 .product-detail-card .product-detail-img {
     width: 100%;
     height: auto;
     border-bottom: 1px solid #ddd;
+    border-radius: 8px;
 }
 
 .product-detail-card-body {
     padding: 20px;
 }
 
-/* Estructura en columnas para pantallas medianas y grandes */
+/* pantallas medianas y grandes */
 @media (min-width: 768px) {
     .product-detail-card {
         display: flex;
         flex-direction: row;
-        align-content: center;
         align-items: center;
         max-width: 800px;
-        width: 100%;
         margin: 0 auto;
     }
 
     .product-detail-card .product-detail-img {
         width: 50%;
         max-height: 500px;
-        object-fit: contain; /* Mantiene la proporción de la imagen */
-        margin: auto; /* Centra la imagen en su contenedor */
+        object-fit: contain;
+        margin: auto;
         border-right: 1px solid #ddd;
-        border-bottom: none;
     }
 
     .product-detail-card-body {
@@ -347,7 +253,6 @@
     transition: border 0.2s ease;
 }
 
-/* Agrega un borde negro más grueso cuando el color está seleccionado */
 .color-option-circle.selected {
     border-color: #000;
     border-width: 2px;
