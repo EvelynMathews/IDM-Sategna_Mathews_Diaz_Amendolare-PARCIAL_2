@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const productDetailContainer = document.getElementById("productDetailContent");
     const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
-    let selectedColor = null;  // Variable para almacenar el color seleccionado
+    let selectedColor = null;
 
     if (selectedProduct) {
         // Generar opciones de color
@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         productDetailContainer.innerHTML = `
-            <div class="col-md-6 mx-auto">
-                <div class="card">
-                    <img src="${selectedProduct.imagen}" class="card-img-top" alt="${selectedProduct.nombre}">
-                    <div class="card-body">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <div class="product-detail-card">
+                    <img src="${selectedProduct.imagen}" class="product-detail-img" alt="${selectedProduct.nombre}">
+                    <div class="product-detail-card-body">
                         <h2 class="card-title">${selectedProduct.nombre}</h2>
                         <p class="card-text">${selectedProduct.descripcion}</p>
                         <p class="card-text"><strong>Precio:</strong> ARS $${selectedProduct.precio}</p>
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p class="card-text"><strong>Disponibilidad:</strong> ${selectedProduct.stock ? "En stock" : "Agotado"}</p>
                         
                         <p class="card-text"><strong>Color:</strong></p>
-                        <div class="color-option-container">${colorOptions}</div> <!-- Opciones de color -->
+                        <div class="color-option-container">${colorOptions}</div>
                         
                         <p class="card-text mt-3"><strong>Mensaje Personalizado:</strong></p>
                         <textarea id="personalMessage" class="form-control mb-3" rows="3" placeholder="Escribe un mensaje especial para el destinatario..."></textarea>
@@ -41,43 +41,33 @@ document.addEventListener("DOMContentLoaded", () => {
         const colorCircles = document.querySelectorAll(".color-option-circle");
         colorCircles.forEach(circle => {
             circle.addEventListener("click", () => {
-                // Remover la clase 'selected' de todos los círculos y añadirla solo al seleccionado
                 colorCircles.forEach(c => c.classList.remove("selected"));
                 circle.classList.add("selected");
-                
-                // Guardar el color seleccionado
                 selectedColor = circle.getAttribute("data-color");
-                console.log("Color seleccionado:", selectedColor); // Verificar el color en la consola
+                console.log("Color seleccionado:", selectedColor);
             });
         });
 
-        // Evento para el botón "Agregar al carrito"
         document.querySelector(".add-to-cart").addEventListener("click", () => {
             const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-            
-            // Obtener el mensaje personalizado
             const personalMessage = document.getElementById("personalMessage").value;
-
-            // Verificar si el producto ya existe en el carrito
             const productIndex = cartItems.findIndex(item => item.name === selectedProduct.nombre && item.color === selectedColor);
-            
-            if (productIndex === -1) { // Solo agregar si no existe
+
+            if (productIndex === -1) {
                 cartItems.push({
                     name: selectedProduct.nombre,
                     price: selectedProduct.precio,
                     image: selectedProduct.imagen,
-                    color: selectedColor || "No especificado", 
-                    message: personalMessage || "Sin mensaje"  // Guardar el mensaje personalizado
+                    color: selectedColor || "No especificado",
+                    message: personalMessage || "Sin mensaje"
                 });
 
-                // Guardar en localStorage
                 localStorage.setItem("cart", JSON.stringify(cartItems));
                 showNotification("Producto agregado exitosamente.");
             } else {
                 showNotification("Este producto ya está en el carrito.");
             }
             
-            // Actualizar el modal del carrito
             updateCartModal();
         });
     } else {
