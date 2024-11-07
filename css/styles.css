@@ -11,9 +11,17 @@
 /* Estilos para títulos y colores principales */
 .titulo {
     color: #CC5147;
-    font-weight: bold;
+    font-weight:bolder;
     font-family: "Merriweather";
     font-size: 40px;
+}
+
+h2 {
+    font-family: "Merriweather";
+    font-weight:normal;
+    font-size: 25px;
+    color: #CC5147;
+
 }
 
 .logo {
@@ -157,6 +165,17 @@
     padding: 20px;
 }
 
+.add-to-cart {
+    background-color: #2ad599; /* Verde claro */
+    color: #333; /* Casi negro */
+    border: none;
+}
+
+.add-to-cart:hover {
+    background-color: #38c999; /* Un tono más oscuro de verde al pasar el mouse */
+    color: #000; /* Opcional: color negro al pasar el mouse */
+}
+
 /* SECCIÓN CONTACTO */
 #successModal .modal-content {
     background-color: #d4eddae1;
@@ -186,61 +205,123 @@
 }
 
 /* SECCIÓN DETALLE DEL PRODUCTO */
+
+.titulo-detalle{
+        color:#131313;
+        font-weight: bolder;
+        font-family: "Merriweather";
+        font-size: 40px;
+}
+
+.detalle-producto-bg{
+    background-image: url('../img/WhatsApp\ Image\ 2024-11-06\ at\ 16.53.36.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 #productDetailContent {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     padding: 20px;
 }
 
+.col-md-12.col-lg-10 {
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+}
+
 .product-detail-card {
+    display: flex;
+    flex-direction: column;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    max-width: 100%; /* Ajuste para pantallas grandes */
+    background-color: #F4F1DE;
 }
 
-.product-detail-card .product-detail-img {
+/* Columna izquierda con información y carrusel */
+.product-detail-left {
     width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.product-detail-card-body {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
 }
 
-/* pantallas medianas y grandes */
+.product-info-container {
+    align-self: flex-start;
+    max-width: 90%;
+    text-align: left;
+    margin: auto;
+}
+
+/* Título y descripción */
+.product-detail-left .card-title,
+.product-detail-left .card-text {
+    text-align: left;
+}
+
+.product-detail-left .card-title{
+    font-size: 30px;
+    color:#CC5147
+}
+
+
+/* Carrusel */
+#productCarousel {
+    margin-top: 15px; /* Margen superior para separar del texto */
+}
+
+.product-detail-card .carousel {
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-carousel-img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px !important; /* Mantiene borde redondeado siempre visible */
+}
+
+/* Ajuste de columnas en pantallas grandes */
 @media (min-width: 768px) {
     .product-detail-card {
-        display: flex;
         flex-direction: row;
-        align-items: center;
-        max-width: 800px;
-        margin: 0 auto;
+        max-width: 95%;
     }
 
-    .product-detail-card .product-detail-img {
-        width: 50%;
-        max-height: 500px;
-        object-fit: contain;
-        margin: auto;
-        border-right: 1px solid #ddd;
-    }
-
+    .product-detail-left,
     .product-detail-card-body {
-        width: 50%;
+        flex: 1;
         padding: 20px;
     }
+}
+
+@media (min-width: 1200px) {
+    .product-detail-card {
+        max-width: 100%;
+    }
+}
+
+/* Espaciado en la columna de detalles adicionales */
+.product-detail-card-body {
+    padding: 20px; /* Padding interno para evitar que los elementos queden pegados a los bordes */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaciado mínimo entre elementos internos */
 }
 
 /* Opciones de color */
 .color-option-container {
     display: flex;
     gap: 8px;
-    margin-top: 10px;
 }
 
 .color-option-circle {
@@ -256,4 +337,19 @@
 .color-option-circle.selected {
     border-color: #000;
     border-width: 2px;
+}
+
+/* Financiación */
+.financing-options i {
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.selected-icon {
+    color: #CC5147;
+}
+
+.precio-caja{
+    font-size: x-large;
 }
