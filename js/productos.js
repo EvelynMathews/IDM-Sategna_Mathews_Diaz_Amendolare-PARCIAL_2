@@ -1,5 +1,4 @@
 // Array de productos
-// Array de productos
 const productos = [
     {
         nombre: "Caja Romántica",
@@ -152,3 +151,272 @@ document.querySelectorAll('.product-detail').forEach((button) => {
     });
 });
 
+
+// contenedor donde se van a mostrar los elementos del carrito
+const cartModalBody = document.querySelector("#cartModal .modal-body");
+const cartItemsList = document.getElementById("cartItems");
+const totalAmountElement = document.createElement('div'); // para el monto total
+let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Función para mostrar la notificación de éxito
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'alert alert-success alert-dismissible fade show';
+    notification.style.position = 'fixed';
+    notification.style.top = '20px';
+    notification.style.right = '20px';
+    notification.style.zIndex = '1050';
+    notification.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+
+    document.body.appendChild(notification);
+
+    // Ocultar automáticamente después de 3 segundos
+    setTimeout(() => {
+        notification.classList.remove("show");
+        notification.classList.add("fade");
+        setTimeout(() => notification.remove(), 150);
+    }, 3000);
+}
+
+//CARRITO
+
+// Función para calcular el total del carrito
+function calculateTotal() {
+    return cartItems.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2);
+}
+// Función para actualizar el contenido del carrito en el modal
+function updateCartModal() {
+    const cartModalBody = document.querySelector("#cartModal .modal-body");
+    const cartItemsList = document.getElementById("cartItems");
+    const totalAmountElement = document.createElement('div');
+    
+    // Revisa si el modal y la lista de items existen
+    if (!cartModalBody || !cartItemsList) return;
+
+    cartItemsList.innerHTML = ''; // Limpia la lista
+
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cartItems.length === 0) {
+        cartModalBody.innerHTML = '<p>El carrito está actualmente vacío.</p>';
+    } else {
+        cartModalBody.innerHTML = ''; // limpia el mensaje de vacío si hay productos
+        cartItemsList.classList.add("list-group");
+
+        cartItems.forEach(item => {
+            const itemElement = document.createElement('li');
+            itemElement.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+            itemElement.innerHTML = `${item.name} <span>ARS $${item.price}</span>`;
+            cartItemsList.appendChild(itemElement);
+        });
+
+        const totalAmount = cartItems.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2);
+        totalAmountElement.classList.add('text-end', 'mt-3', 'fw-bold');
+        totalAmountElement.innerHTML = `Total: ARS $${totalAmount}`;
+        cartModalBody.appendChild(cartItemsList); 
+        cartModalBody.appendChild(totalAmountElement); 
+    }
+}
+
+
+ // Para agregar productos desde el botón de agregar al carrito
+ document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const itemName = button.getAttribute('data-name');
+        const itemPrice = button.getAttribute('data-price');
+
+        if (itemName && itemPrice) {
+            cartItems.push({ name: itemName, price: itemPrice });
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            showNotification("Producto agregado exitosamente.");
+            updateCartModal();
+        } else {
+            console.error("No se encontró el nombre o precio del producto.");
+        }
+    });
+});
+
+// "Vaciar Carrito"
+document.getElementById('clearCart').addEventListener('click', () => {
+    cartItems = []; 
+    localStorage.removeItem("cart");
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    updateCartModal(); 
+});
+
+
+// Actualizar el carrito cada vez que se abre el modal
+document.addEventListener("DOMContentLoaded", () => {
+    const cartModal = document.getElementById('cartModal');
+    if (cartModal) {
+        cartModal.addEventListener('show.bs.modal', updateCartModal);
+    }
+});
+
+
+//DETALLE DE PRODUCTOS
+
+document.addEventListener("DOMContentLoaded", () => {
+    const productDetailContainer = document.getElementById("productDetailContent");
+    const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
+    let selectedColor = null;
+
+    if (selectedProduct) {
+        // opciones de color
+        let colorOptions = "";
+        if (selectedProduct.colores && selectedProduct.colores.length > 0) {
+            colorOptions = selectedProduct.colores.map((color) => `
+                <div class="color-option-circle" data-color="${color}" style="background-color: ${color};"></div>
+            `).join("");
+        } else {
+            colorOptions = "<p>No hay colores disponibles.</p>";
+        }
+
+        // Genera el carrusel de imágenes
+        const carouselImages = selectedProduct.imagenes.map((image, index) => `
+            <div class="carousel-item ${index === 0 ? "active" : ""}">
+                <img src="${image}" class="d-block w-100 product-carousel-img" alt="${selectedProduct.nombre}">
+            </div>
+        `).join("");
+
+        productDetailContainer.innerHTML = `
+            <div class="col-md-12 col-lg-10 mx-auto">
+                <div class="product-detail-card d-flex">
+                    <!-- Columna izquierda con contenedor de información y carrusel -->
+                    <div class="product-detail-left">
+                        <!-- Contenedor para nombre y descripción alineados al inicio -->
+                        <div class="product-info-container">
+                            <h2 class="card-title">${selectedProduct.nombre}</h2>
+                            <p class="card-text">${selectedProduct.descripcion}</p>
+                        </div>
+                        
+                        <!-- Carrusel de imágenes centrado -->
+                        <div id="productCarousel" class="carousel slide mt-3" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                ${carouselImages}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Columna derecha con detalles adicionales -->
+                    <div class="product-detail-card-body">
+                        <p class="card-text"><strong>Fecha de Entrega:</strong> ${selectedProduct.fechaEntrega}</p>
+                        <p class="card-text"><strong>Disponibilidad:</strong> ${selectedProduct.stock ? "En stock" : "Agotado"}</p>
+                        
+                        <p class="card-text"><strong>Color:</strong></p>
+                        <div class="color-option-container">${colorOptions}</div>
+
+                        <p class="card-text mt-3"><strong>Detalle de Financiación:</strong></p>
+                        <div class="financing-options d-flex gap-3">
+                            <i class="bi bi-bank fs-4 financing-icon" title="Banco"></i>
+                            <i class="bi bi-credit-card-2-back-fill fs-4 financing-icon" title="Visa"></i>
+                            <i class="bi bi-credit-card fs-4 financing-icon" title="Mastercard"></i>
+                        </div>
+                        
+                        <p class="card-text mt-3"><strong>Mensaje Personalizado:</strong></p>
+                        <textarea id="personalMessage" class="form-control mb-3" rows="3" placeholder="Escribe un mensaje especial para el destinatario..."></textarea>
+                        
+                        <p class="card-text precio-caja"><strong>Precio:</strong><strong> ARS $${selectedProduct.precio}</strong></p>
+
+                        
+                        <button class="btn btn-primary mt-3 add-to-cart" data-name="${selectedProduct.nombre}" data-price="${selectedProduct.precio}">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Selección de color
+        const colorCircles = document.querySelectorAll(".color-option-circle");
+        colorCircles.forEach(circle => {
+            circle.addEventListener("click", () => {
+                colorCircles.forEach(c => c.classList.remove("selected"));
+                circle.classList.add("selected");
+                selectedColor = circle.getAttribute("data-color");
+            });
+        });
+
+        // Agregar al carrito
+        document.querySelector(".add-to-cart").addEventListener("click", () => {
+            const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+            const personalMessage = document.getElementById("personalMessage").value;
+            const productIndex = cartItems.findIndex(item => item.name === selectedProduct.nombre && item.color === selectedColor);
+
+            if (productIndex === -1) {
+                cartItems.push({
+                    name: selectedProduct.nombre,
+                    price: selectedProduct.precio,
+                    image: selectedProduct.imagenes[0],
+                    color: selectedColor || "No especificado",
+                    message: personalMessage || "Sin mensaje"
+                });
+
+                localStorage.setItem("cart", JSON.stringify(cartItems));
+                showNotification("Producto agregado exitosamente.");
+            } else {
+                showNotification("Este producto ya está en el carrito.");
+            }
+
+            updateCartModal();
+        });
+    } else {
+        productDetailContainer.innerHTML = "<p>Producto no encontrado.</p>";
+    }
+});
+
+
+
+// SECCIÓN CONTACTO - VALIDACIÓN DE FORMULARIO
+(() => {
+    'use strict';
+
+    // Selección del formulario
+    const form = document.getElementById('contactForm');
+    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+
+    // Evento de validación y envío del formulario
+    form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+            form.classList.add('was-validated'); // Mostrar errores si los hay
+        } else {
+            event.preventDefault(); // Evita el envío real
+            successModal.show(); // Muestra el modal de éxito
+            form.reset(); // Resetea los campos del formulario
+            setTimeout(() => {
+                form.classList.remove('was-validated'); // Elimina la clase de validación visual después de un pequeño retraso
+            }, 0);
+        }
+    }, false);
+})();
+
+
+//EFECTO DE TRANSICIÓN AL PASAR DE PÁGUINA
+document.addEventListener("DOMContentLoaded", () => {
+    // Aplica una suave transición de entrada en la opacidad
+    document.body.classList.add("fade-in");
+
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function (event) {
+            if (link.href.startsWith(window.location.origin)) {
+                event.preventDefault(); 
+                document.body.classList.add("fade-out"); // Añade la clase de desvanecimiento suave
+                // Redirige después de un breve retraso
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 100); 
+            }
+        });
+    });
+});
