@@ -142,7 +142,6 @@ const productos = [
     }
 ];
 
-
 document.querySelectorAll('.product-detail').forEach((button) => {
     button.addEventListener('click', (event) => {
         const id = button.getAttribute('data-id');
@@ -151,6 +150,22 @@ document.querySelectorAll('.product-detail').forEach((button) => {
     });
 });
 
+// barra de busqueda
+// agregar opciones a la barra de busqueda
+productos.forEach(p => {
+    document.querySelector("#opcionesBusquedaProductos").innerHTML += `<option value="${p.nombre}" data-id="${p.id}"></option>`
+})
+// ir a detalle al seleccionr una opción
+document.querySelector("#barraBusqueda").addEventListener('change', e => {
+    productoSeleccionado = document.querySelector("#opcionesBusquedaProductos")
+        .querySelector(`option[value="${e.target.value}"]`);
+    if (productoSeleccionado) {
+        localStorage.setItem('selectedProduct', JSON.stringify(productos.find(p => p.id == productoSeleccionado.getAttribute('data-id'))));
+        ruteActual = window.location.pathname
+        rutaBase = ruteActual.substring(0, ruteActual.lastIndexOf('/'));
+        window.location.href = `${rutaBase}/productos-detalle.html`;
+    }
+})
 
 // contenedor donde se van a mostrar los elementos del carrito
 const cartModalBody = document.querySelector("#cartModal .modal-body");

@@ -45,8 +45,10 @@
                     </div>
                     <!-- Formulario de búsqueda -->
                     <form class="d-flex order-2 order-lg-1" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar producto"
-                            aria-label="Buscar">
+                        <input id="barraBusqueda" class="form-control me-2" type="search" list="opcionesBusquedaProductos" placeholder="Buscar producto"
+                               aria-label="Buscar">
+                        <datalist id="opcionesBusquedaProductos">
+                        </datalist>
                         <button class="btn relleno bi-search" type="submit"></button>
                     </form>
                 </div>
