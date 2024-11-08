@@ -7,8 +7,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-romantica.webp",
-            "./img/productos/caja-romantica.webp",
-            "./img/productos/caja-romantica.webp"
+            "./img/productos/caja-romantica2.webp",
+            "./img/productos/caja-romantica3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#FF0000", "#FFC0CB", "#800080"],
@@ -21,8 +21,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-cumpleaños.webp",
-            "./img/productos/caja-cumpleaños.webp",
-            "./img/productos/caja-cumpleaños.webp"
+            "./img/productos/caja-cumpleaños2.webp",
+            "./img/productos/caja-cumpleaños3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#FFD700", "#FF69B4", "#1E90FF"],
@@ -35,8 +35,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-relax.webp",
-            "./img/productos/caja-relax.webp",
-            "./img/productos/caja-relax.webp"
+            "./img/productos/caja-relax2.webp",
+            "./img/productos/caja-relax3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#ADD8E6", "#B0C4DE", "#D8BFD8"],
@@ -49,8 +49,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-de-cafe.webp",
-            "./img/productos/caja-de-cafe.webp",
-            "./img/productos/caja-de-cafe.webp"
+            "./img/productos/caja-de-cafe2.webp",
+            "./img/productos/caja-de-cafe3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#6B4226", "#D2B48C", "#8B4513"],
@@ -63,8 +63,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-picnic.webp",
-            "./img/productos/caja-picnic.webp",
-            "./img/productos/caja-picnic.webp"
+            "./img/productos/caja-picnic2.webp",
+            "./img/productos/caja-picnic3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#32CD32", "#FFD700", "#FF6347"],
@@ -77,8 +77,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-bienestar.webp",
-            "./img/productos/caja-bienestar.webp",
-            "./img/productos/caja-bienestar.webp"
+            "./img/productos/caja-bienestar2.webp",
+            "./img/productos/caja-bienestar3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#FFB6C1", "#FFFACD", "#E6E6FA"],
@@ -91,8 +91,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-retro-gamer.webp",
-            "./img/productos/caja-retro-gamer.webp",
-            "./img/productos/caja-retro-gamer.webp"
+            "./img/productos/caja-retro-gamer2.webp",
+            "./img/productos/caja-retro-gamer3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#2E8B57", "#708090", "#000000"],
@@ -105,8 +105,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-para-viajeros.webp",
-            "./img/productos/caja-para-viajeros.webp",
-            "./img/productos/caja-para-viajeros.webp"
+            "./img/productos/caja-para-viajeros2.webp",
+            "./img/productos/caja-para-viajeros3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#4682B4", "#8B0000", "#FFD700"],
@@ -119,8 +119,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-energia.webp",
-            "./img/productos/caja-energia.webp",
-            "./img/productos/caja-energia.webp"
+            "./img/productos/caja-energia2.webp",
+            "./img/productos/caja-energia3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#FF4500", "#FF8C00", "#FFFF00"],
@@ -133,8 +133,8 @@ const productos = [
         stock: true,
         imagenes: [
             "./img/productos/caja-de-flores.webp",
-            "./img/productos/caja-de-flores.webp",
-            "./img/productos/caja-de-flores.webp"
+            "./img/productos/caja-de-flores2.webp",
+            "./img/productos/caja-de-flores3.webp"
         ],
         fechaEntrega: "2 días después de la compra",
         colores: ["#FF69B4", "#FFF0F5", "#BA55D3"],
