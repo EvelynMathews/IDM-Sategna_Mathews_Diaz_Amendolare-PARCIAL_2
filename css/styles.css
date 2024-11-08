@@ -14,6 +14,9 @@ body{
 }
 
 main{
+    min-height: calc(100vh - 200px); /* Ajusta 200px a la altura del header y footer combinados */
+    padding-bottom: 20px; /* Espacio extra para que no se superponga con el footer */
+    box-sizing: border-box;
     max-width: 100%;
     overflow-x: hidden;
 }
@@ -411,9 +414,13 @@ h2, h3 {
 
 /* FOOTER */
 
-.bg-footer{
- background-color: #F4F1DE;
+.bg-footer {
+    background-color: #F4F1DE;
+    bottom: 0;
+    width: 100%;
+    left: 0;
 }
+
 
 footer .bi-linkedin {
     color: #333; 
@@ -423,4 +430,12 @@ footer .bi-linkedin {
 
 footer .bi-linkedin:hover {
     color: #000; 
+}
+
+.foto-perfil img{
+    width: 250px;
+}
+
+.redes-sociales-footer i {
+    font-size: 1.5rem;
 }
