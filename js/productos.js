@@ -151,12 +151,22 @@ document.querySelectorAll('.product-detail').forEach((button) => {
 });
 
 // barra de busqueda
+const barraBusqueda = document.querySelector("#barraBusqueda");
 // agregar opciones a la barra de busqueda
-productos.forEach(p => {
-    document.querySelector("#opcionesBusquedaProductos").innerHTML += `<option value="${p.nombre}" data-id="${p.id}"></option>`
+barraBusqueda.addEventListener('input', () => {
+    const valorInput = barraBusqueda.value.trim();
+    let optionsHTML = '';
+    if (valorInput) {
+        productos.forEach(p => {
+            if (p.nombre.toLowerCase().includes(valorInput.toLowerCase())) {
+                optionsHTML += `<option value="${p.nombre}" data-id="${p.id}"></option>`
+            }
+        })
+    }
+    document.querySelector("#opcionesBusquedaProductos").innerHTML = optionsHTML;
 })
 // ir a detalle al seleccionr una opción
-document.querySelector("#barraBusqueda").addEventListener('change', e => {
+barraBusqueda.addEventListener('change', e => {
     productoSeleccionado = document.querySelector("#opcionesBusquedaProductos")
         .querySelector(`option[value="${e.target.value}"]`);
     if (productoSeleccionado) {
