@@ -439,3 +439,94 @@ footer .bi-linkedin:hover {
 .redes-sociales-footer i {
     font-size: 1.5rem;
 }
+
+
+/* SECCIÓN LIBRE EVELYN */
+.banner-eco{
+    background-color: #D5FFD9;
+}
+
+.banner-eco img {
+    max-height: 600px; 
+    object-fit: contain;
+    display: block;
+    margin: 0 auto; 
+}
+
+.eco-titulo-detalle{
+    color:#155724;
+    font-weight: bolder;
+    font-family: "Merriweather";
+    font-size: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección de Sustentabilidad */
+.seccion-sustentabilidad {
+    padding: 20px;
+}
+
+/* Estilos de las tarjetas de sustentabilidad */
+.container-seccion-eco {
+    margin-top: 65px; 
+}
+
+
+.tarjeta-sustentabilidad .card {
+    text-align: left;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-sustentabilidad .card-body {
+    padding: 15px;
+}
+
+.tarjeta-sustentabilidad .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.info-enlace {
+    color: #28a745;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.info-enlace:hover {
+    text-decoration: underline;
+}
+
+/* Alineación y espaciado */
+.row-cols-md-2 > * {
+    display: flex;
+    justify-content: center;
+}
+
+
+.tarjeta-sustentabilidad .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajuste de espaciado */
+.tarjeta-sustentabilidad {
+    margin: 0 15px;
+}
+
+@media (min-width: 768px) {
+    .tarjeta-sustentabilidad {
+        margin: 0 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container-seccion-eco {
+        margin-left: 55px; 
+        margin-right: 55px;
+    }
+}
