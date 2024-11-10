@@ -282,6 +282,72 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const sliderWrapper = document.querySelector(".slider-wrapper");
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.getElementById("left-arrow");
+    const nextBtn = document.getElementById("right-arrow");
+
+    // Confirmar que los elementos se están seleccionando correctamente
+    if (!prevBtn || !nextBtn) {
+        console.log("Los botones de navegación no se encontraron.");
+        return; // Salir si no se encuentran los botones
+    }
+
+    console.log("prevBtn:", prevBtn, "nextBtn:", nextBtn); // Confirmación de que los botones están seleccionados
+
+    let currentIndex = 0;
+    let visibleSlides = 4; // Por defecto, para pantallas grandes
+
+    // Ajustar la cantidad de slides visibles según el tamaño de la pantalla
+    function updateVisibleSlides() {
+        if (window.innerWidth >= 1200) {
+            visibleSlides = 4;
+        } else if (window.innerWidth >= 768) {
+            visibleSlides = 2;
+        } else {
+            visibleSlides = 1;
+        }
+        updateSlider(); // Actualizar la posición al redimensionar
+    }
+
+    // Mover el slider a la posición actual
+    function updateSlider() {
+        const slideWidth = sliderWrapper.clientWidth / visibleSlides;
+        const offset = currentIndex * slideWidth;
+        sliderWrapper.style.transform = `translateX(-${offset}px)`;
+        highlightActiveSlide();
+    }
+
+    // Resaltar la imagen activa
+    function highlightActiveSlide() {
+        slides.forEach(slide => slide.classList.remove("active-slide"));
+        slides[currentIndex]?.classList.add("active-slide");
+    }
+
+    // Eventos de los botones con mensajes de consola para confirmar clics
+    prevBtn.addEventListener("click", function () {
+        console.log("Prev button clicked");
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+
+    nextBtn.addEventListener("click", function () {
+        console.log("Next button clicked");
+        if (currentIndex < slides.length - visibleSlides) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+
+    // Ajustar slides visibles al cambiar el tamaño de pantalla
+    window.addEventListener("resize", updateVisibleSlides);
+    updateVisibleSlides(); // Ejecutar en la carga inicial
+});
+
+
 //DETALLE DE PRODUCTOS
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -307,6 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `).join("");
 
+        if (productDetailContainer) {
         productDetailContainer.innerHTML = `
             <div class="col-md-12 col-lg-10 mx-auto">
                 <div class="product-detail-card d-flex">
@@ -360,6 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
         `;
+        }
 
         // Selección de color
         const colorCircles = document.querySelectorAll(".color-option-circle");
@@ -372,9 +440,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Agregar al carrito
-        document.querySelector(".add-to-cart").addEventListener("click", () => {
+        const addToCart = document.querySelector(".add-to-cart")
+        
+        addToCart?.addEventListener("click", () => {
             const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-            const personalMessage = document.getElementById("personalMessage").value;
+            const personalMessage = document.getElementById("personalMessage")?.value;
             const productIndex = cartItems.findIndex(item => item.name === selectedProduct.nombre && item.color === selectedColor);
 
             if (productIndex === -1) {
@@ -407,7 +477,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Selección del formulario
     const form = document.getElementById('contactForm');
-    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+    const successModalElement = document.getElementById('successModal')
+    const successModal = successModalElement ?? new bootstrap.Modal(document.getElementById('successModal'));
+
 
     // Evento de validación y envío del formulario
     form.addEventListener('submit', function (event) {
@@ -429,15 +501,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //EFECTO DE TRANSICIÓN AL PASAR DE PÁGUINA
 document.addEventListener("DOMContentLoaded", () => {
-    // Aplica una suave transición de entrada en la opacidad
     document.body.classList.add("fade-in");
 
     document.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", function (event) {
             if (link.href.startsWith(window.location.origin)) {
                 event.preventDefault(); 
-                document.body.classList.add("fade-out"); // Añade la clase de desvanecimiento suave
-                // Redirige después de un breve retraso
+                document.body.classList.add("fade-out"); 
                 setTimeout(() => {
                     window.location.href = link.href;
                 }, 100); 
@@ -445,3 +515,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+

@@ -530,3 +530,90 @@ footer .bi-linkedin:hover {
         margin-right: 55px;
     }
 }
+
+
+/* Estilos de slider */
+.slider-container {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    /* overflow: hidden; */
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    margin: 0 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;}
+
+.slide {
+    flex: 0 0 auto;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.slider img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.slider-imagenes .slide {
+    flex: 0 0 auto;
+    width: calc(100% / 4); /* Ajusta aquí para pantallas grandes */
+    transition: transform 0.3s ease;
+}
+
+.slider-imagenes .slide-activo {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen activa */
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    padding: 5px;
+    padding: 0.5rem;
+    z-index: 10;
+}
+
+.active-slide {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+@media (min-width: 1200px) {
+    .slide {
+        min-width: 25%; /* 4 slides en pantalla grande */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .slide {
+        min-width: 50%; /* 2 slides en pantalla mediana */
+    }
+}
+
+@media (max-width: 767px) {
+    .slide {
+        min-width: 100%; /* 1 slide en pantalla pequeña */
+    }
+}
