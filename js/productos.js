@@ -473,7 +473,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Selección del formulario
     const form = document.getElementById('contactForm');
     const successModalElement = document.getElementById('successModal')
-    const successModal = successModalElement ?? new bootstrap.Modal(document.getElementById('successModal'));
+    let successModal
+    if (successModalElement) {
+        successModal = new bootstrap.Modal(document.getElementById('successModal'));
+    }
 
 
     // Evento de validación y envío del formulario
