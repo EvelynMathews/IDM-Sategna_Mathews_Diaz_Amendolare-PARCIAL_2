@@ -273,6 +273,10 @@ document.getElementById('clearCart').addEventListener('click', () => {
 });
 
 
+
+
+
+
 // Actualizar el carrito cada vez que se abre el modal
 document.addEventListener("DOMContentLoaded", () => {
     const cartModal = document.getElementById('cartModal');
@@ -281,20 +285,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
     const sliderWrapper = document.querySelector(".slider-wrapper");
     const slides = document.querySelectorAll(".slide");
     const prevBtn = document.getElementById("left-arrow");
     const nextBtn = document.getElementById("right-arrow");
-
-    // Confirmar que los elementos se están seleccionando correctamente
-    if (!prevBtn || !nextBtn) {
-        console.log("Los botones de navegación no se encontraron.");
-        return; // Salir si no se encuentran los botones
-    }
-
-    console.log("prevBtn:", prevBtn, "nextBtn:", nextBtn); // Confirmación de que los botones están seleccionados
 
     let currentIndex = 0;
     let visibleSlides = 4; // Por defecto, para pantallas grandes

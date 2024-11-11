@@ -553,7 +553,7 @@ footer .bi-linkedin:hover {
 
 .slide {
     flex: 0 0 auto;
-    margin: 0 10px;
+    margin: 0;
     text-align: center;
 }
 
@@ -615,5 +615,57 @@ footer .bi-linkedin:hover {
 @media (max-width: 767px) {
     .slide {
         min-width: 100%; /* 1 slide en pantalla pequeña */
+    }
+}
+
+
+/* Centrar el carrusel completo en la página y definir el ancho máximo */
+.carousel-section-eco{
+    margin-top: 35px;
+}
+
+#multiItemCarousel {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Asegurar que cada tarjeta esté centrada en su contenedor */
+.carousel-item .col-auto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajustar el tamaño del contenedor de la tarjeta para que se adapte a la tarjeta */
+.carousel-item .card {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* Espaciado entre tarjetas */
+.carousel-item .row {
+    gap: 20px;
+}
+
+/* Fondo personalizado para las tarjetas */
+.custom-card-bg {
+    background-color: #D5FFD9;
+}
+
+/* Personalización de los controles del carrusel */
+.custom-carousel-control .carousel-control-prev-icon,
+.custom-carousel-control .carousel-control-next-icon {
+    filter: invert(0.8);
+}
+
+/* Tamaño de tarjetas más grandes en pantallas grandes */
+@media (min-width: 1200px) {
+    .carousel-item .card {
+        max-width: 450px; /* Aumenta el tamaño de las tarjetas en pantallas grandes */
     }
 }
