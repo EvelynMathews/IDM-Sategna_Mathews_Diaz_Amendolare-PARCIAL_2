@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pick & Pack - Inicio</title>
 
-    <!-- Bootstrap CSS (versión 5.2.3) -->
+    <!-- Bootstrap CSS (versión 5.3.3) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -19,57 +19,112 @@
 
 <body>
 
-<header>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="./img/Logo-Pick&Pack.svg" alt="Logo de Pick & Pack" class="logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./img/Logo-Pick&Pack.svg" alt="Logo de Pick & Pack" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="productos.html">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="seccion-libre.html">Sección Libre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
-                </ul>
-                <!-- Ícono de Carrito que activa el modal -->
-                <div class="btn order-1 order-lg-2 navbar-cart-icon-text borde" data-bs-toggle="modal"
-                     data-bs-target="#cartModal">
-                    <i class="bi bi-cart"></i>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="seccion-libre.html">Galeria</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <!-- Ícono de Carrito que activa el modal -->
+                    <div class="btn order-1 order-lg-2 navbar-cart-icon-text borde" data-bs-toggle="modal"
+                        data-bs-target="#cartModal">
+                        <i class="bi bi-cart"></i>
+                    </div>
+                    <!-- Formulario de búsqueda -->
+                    <form class="d-flex order-2 order-lg-1" role="search">
+                        <input id="barraBusqueda" class="form-control me-2" type="search"
+                            list="opcionesBusquedaProductos" placeholder="Buscar producto" aria-label="Buscar">
+                        <datalist id="opcionesBusquedaProductos">
+                        </datalist>
+                        <button class="btn relleno bi-search" type="submit"></button>
+                    </form>
                 </div>
-                <!-- Formulario de búsqueda -->
-                <form class="d-flex order-2 order-lg-1" role="search">
-                    <input id="barraBusqueda" class="form-control me-2" type="search" list="opcionesBusquedaProductos" placeholder="Buscar producto"
-                           aria-label="Buscar">
-                    <datalist id="opcionesBusquedaProductos">
-                    </datalist>
-                    <button class="btn relleno bi-search" type="submit"></button>
-                </form>
+            </div>
+        </nav>
+    </header>
+    <main class="mt-5">
+
+        <div class="container-md text-center my-4">
+            <h1 class="text-center mb-4 mt-4 titulo-detalle">Galeria</h1>
+            <div class="descripcion">
+                <p class="mb-4">Cada producto que ves aquí es una <strong>obra de arte única</strong>, creada
+                    especialmente para ti. Desde <em>tazas con fotos inolvidables</em> hasta <em>camisetas con diseños
+                        originales</em>, nuestras opciones son <strong>infinitas</strong>. Imagina poder tener un objeto
+                    que refleje tu personalidad o celebrar un momento especial. ¡Convierte tus ideas en realidad!</p>
+
+                <p class="mb-4">Nuestros productos personalizados son <strong>más que simples objetos</strong>; son
+                    <em>recuerdos que perduran en el tiempo</em>. Al elegir un <strong>regalo personalizado</strong>,
+                    estás demostrando que te has tomado el tiempo de pensar en esa persona y crear algo único para
+                    ellos. Además, nuestros productos son de <strong>alta calidad</strong> y están hechos con
+                    <em>materiales duraderos</em>.
+                </p>
             </div>
         </div>
-    </nav>
-</header>
-<main>
-    <h1 class="text-center mb-4 mt-4 titulo-detalle">Proximamente</h1>
+
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <!-- Galería de 8 fotos -->
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <img src="./img/img-seccion-libre-joel/taza1.webp" class="img-fluid rounded"
+                        alt="Taza personalizada">
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <img src="./img/img-seccion-libre-joel/taza2.webp" class="img-fluid rounded"
+                        alt="Otra taza personalizada">
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <img src="./img/img-seccion-libre-joel/remera.webp" class="img-fluid rounded"
+                        alt="Remera personalizada">
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <img src="./img/img-seccion-libre-joel/toallas.webp" class="img-fluid rounded"
+                        alt="Toallas personalizadas">
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <img src="./img/img-seccion-libre-joel/llaveros.webp" class="img-fluid rounded"
+                        alt="Llaveros personalizados">
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <img src="./img/img-seccion-libre-joel/fundas.webp" class="img-fluid rounded"
+                        alt="Fundas personalizadas">
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <img src="./img/img-seccion-libre-joel/buso.webp" class="img-fluid rounded"
+                        alt="Buso personalizado">
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <img src="./img/img-seccion-libre-joel/agenda.webp" class="img-fluid rounded"
+                        alt="Agenda personalizada">
+                </div>
+            </div>
+        </div>
+
         <!-- Modal del Carrito -->
         <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="cartModalLabel">Carrito</h3>
+                        <h2 class="modal-title" id="cartModalLabel">Carrito</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
@@ -91,42 +146,48 @@
             Producto agregado exitosamente.
             <button type="button" class="btn-close" aria-label="Cerrar"></button>
         </div>
-</main>
+    </main>
 
-<!-- Footer -->
-<footer class="mt-5 py-4 bg-footer">
-    <div class="container">
-        <div class="row align-items-center">
+    <!-- Footer -->
+    <footer class="mt-0 py-4 bg-footer">
+        <div class="container">
+            <div class="row align-items-center">
 
-            <!-- Foto de perfil -->
-            <div class="col-md-3 text-center mb-3 mb-md-0 foto-perfil">
-                <img src="./img/placeholder-profile-pic.png" alt="Foto de perfil" class="img-fluid rounded-circle">
+                <!-- Foto de perfil -->
+                <div class="col-md-3 text-center mb-3 mb-md-0 foto-perfil">
+                    <img src="./img/placeholder-profile-pic.png" alt="Foto de perfil" class="img-fluid rounded-circle">
+                </div>
+
+                <!-- Información personal -->
+                <div class="col-md-6 text-center text-md-start">
+                    <h3>Nombre y Apellido: Joel Amendolare</h3>
+                    <p>Edad: 18 años</p>
+                    <p>Correo: joeamendolare2@gmail.com</p>
+                </div>
+
+                <!-- Redes sociales -->
+                <div class="col-md-3 text-center text-md-end redes-sociales-footer">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://www.linkedin.com/" target="_blank" class="text-white me-3">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="text-white me-3">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" class="text-white">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                </div>
+
             </div>
-
-            <!-- Información personal -->
-            <div class="col-md-6 text-center text-md-start">
-                <h5>Nombre Apellido:Hay equipo</h5>
-                <p>Edad: 80 años</p>
-                <p>Correo: nombre.apellido@example.com</p>
-            </div>
-
-            <!-- Redes sociales -->
-            <div class="col-md-3 text-center text-md-end redes-sociales-footer">
-                <h5>Redes Sociales</h5>
-                <a href="https://www.linkedin.com/" target="_blank" class="text-white me-3">
-                    <i class="bi bi-linkedin"></i>
-                </a>
-            </div>
-
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- Bootstrap JavaScript Bundle con Popper.js (versión 5.2.3) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <!-- Bootstrap JavaScript Bundle con Popper.js (versión 5.3.3) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-<script src="./js/productos.js"></script>
+    <script src="./js/productos.js"></script>
 </body>
 
 </html>
