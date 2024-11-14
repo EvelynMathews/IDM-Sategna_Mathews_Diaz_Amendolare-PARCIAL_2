@@ -99,12 +99,12 @@ h3 {
 }
 
 /* Efecto de Parallax */
-.col-12 {
+.agrandable {
     transition: 500ms;
-    filter: drop-shadow(0 4px 10px #131313);
+    filter: drop-shadow(0 2px 5px #131313);
 }
 
-.col-12:hover {
+.agrandable:hover {
     transform: scale(1.1);
 }
 
@@ -227,6 +227,10 @@ h3 {
 }
 
 /* SECCIÓN CONTACTO */
+.textarea {
+    height: 100px;
+}
+
 #successModal .modal-content {
     background-color: #d4eddae1;
     color: #26833c;
