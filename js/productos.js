@@ -273,10 +273,6 @@ document.getElementById('clearCart').addEventListener('click', () => {
 });
 
 
-
-
-
-
 // Actualizar el carrito cada vez que se abre el modal
 document.addEventListener("DOMContentLoaded", () => {
     const cartModal = document.getElementById('cartModal');
@@ -435,9 +431,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Agregar al carrito
-        const addToCart = document.querySelector(".add-to-cart")
-        
-        addToCart?.addEventListener("click", () => {
+        document.querySelector(".add-to-cart")?.addEventListener("click", () => {
             const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
             const personalMessage = document.getElementById("personalMessage")?.value;
             const productIndex = cartItems.findIndex(item => item.name === selectedProduct.nombre && item.color === selectedColor);
@@ -472,15 +466,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Selección del formulario
     const form = document.getElementById('contactForm');
-    const successModalElement = document.getElementById('successModal')
-    let successModal
-    if (successModalElement) {
-        successModal = new bootstrap.Modal(document.getElementById('successModal'));
-    }
-
+    let successModalElement = document.getElementById('successModal');
+    const successModal = successModalElement ? new bootstrap.Modal(successModalElement) : null;
 
     // Evento de validación y envío del formulario
-    form.addEventListener('submit', function (event) {
+    form?.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
@@ -505,7 +495,7 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", function (event) {
             if (link.href.startsWith(window.location.origin)) {
                 event.preventDefault(); 
-                document.body.classList.add("fade-out"); 
+                document.body.classList.add("fade-out");
                 setTimeout(() => {
                     window.location.href = link.href;
                 }, 100); 
@@ -513,4 +503,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
