@@ -281,64 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const sliderWrapper = document.querySelector(".slider-wrapper");
-    const slides = document.querySelectorAll(".slide");
-    const prevBtn = document.getElementById("left-arrow");
-    const nextBtn = document.getElementById("right-arrow");
-
-    let currentIndex = 0;
-    let visibleSlides = 4; // Por defecto, para pantallas grandes
-
-    // Ajustar la cantidad de slides visibles según el tamaño de la pantalla
-    function updateVisibleSlides() {
-        if (window.innerWidth >= 1200) {
-            visibleSlides = 4;
-        } else if (window.innerWidth >= 768) {
-            visibleSlides = 2;
-        } else {
-            visibleSlides = 1;
-        }
-        updateSlider(); // Actualizar la posición al redimensionar
-    }
-
-    // Mover el slider a la posición actual
-    function updateSlider() {
-        const slideWidth = sliderWrapper.clientWidth / visibleSlides;
-        const offset = currentIndex * slideWidth;
-        sliderWrapper.style.transform = `translateX(-${offset}px)`;
-        highlightActiveSlide();
-    }
-
-    // Resaltar la imagen activa
-    function highlightActiveSlide() {
-        slides.forEach(slide => slide.classList.remove("active-slide"));
-        slides[currentIndex]?.classList.add("active-slide");
-    }
-
-    // Eventos de los botones con mensajes de consola para confirmar clics
-    prevBtn.addEventListener("click", function () {
-        console.log("Prev button clicked");
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-        }
-    });
-
-    nextBtn.addEventListener("click", function () {
-        console.log("Next button clicked");
-        if (currentIndex < slides.length - visibleSlides) {
-            currentIndex++;
-            updateSlider();
-        }
-    });
-
-    // Ajustar slides visibles al cambiar el tamaño de pantalla
-    window.addEventListener("resize", updateVisibleSlides);
-    updateVisibleSlides(); // Ejecutar en la carga inicial
-});
-
-
 //DETALLE DE PRODUCTOS
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -486,20 +428,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }, false);
 })();
 
-
-//EFECTO DE TRANSICIÓN AL PASAR DE PÁGUINA
-document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("fade-in");
-
-    document.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", function (event) {
-            if (link.href.startsWith(window.location.origin)) {
-                event.preventDefault(); 
-                document.body.classList.add("fade-out");
-                setTimeout(() => {
-                    window.location.href = link.href;
-                }, 100); 
-            }
-        });
-    });
-});
