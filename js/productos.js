@@ -427,23 +427,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, false);
 })();
-
-
-//EFECTO DE TRANSICIÓN AL PASAR DE PÁGUINA
-document.addEventListener("DOMContentLoaded", () => {
-    // Aplica una suave transición de entrada en la opacidad
-    document.body.classList.add("fade-in");
-
-    document.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", function (event) {
-            if (link.href.startsWith(window.location.origin)) {
-                event.preventDefault(); 
-                document.body.classList.add("fade-out"); // Añade la clase de desvanecimiento suave
-                // Redirige después de un breve retraso
-                setTimeout(() => {
-                    window.location.href = link.href;
-                }, 100); 
-            }
-        });
-    });
-});
