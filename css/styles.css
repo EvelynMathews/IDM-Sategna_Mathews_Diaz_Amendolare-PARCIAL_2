@@ -436,6 +436,22 @@ h3 {
     left: 0;
 }
 
+.informacion strong {
+    color: #CC5147;
+}
+
+.informacion p {
+    font-size: 20px;
+}
+
+.redes strong {
+    color: #CC5147;
+}
+
+.redes p {
+    font-size: 20px;
+}
+
 footer .bi-linkedin {
     color: #333;
     font-size: 1.5rem;
