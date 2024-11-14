@@ -765,3 +765,14 @@ footer .bi-linkedin:hover {
     margin-right: auto;
     color: #333;
 }
+
+/* Estilo para la imagen con efecto parallax */
+.parallax {
+    opacity: 80%;
+    background-image: url('../img/Seccion-libre/reciclable-pick&pack.webp'); 
+    height: 300px; 
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
