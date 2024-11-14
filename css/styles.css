@@ -67,11 +67,11 @@ h3 {
     border: #CC5147;
 }
 
-.borde {
+.borde, .relleno:hover {
     border-color: #CC5147;
 }
 
-.relleno {
+.relleno, .borde:hover {
     background-color: #CC5147;
     color: #F4F1DE;
 }
