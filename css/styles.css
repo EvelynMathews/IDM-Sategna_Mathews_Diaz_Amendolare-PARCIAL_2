@@ -86,14 +86,6 @@ h3 {
     .btn-outline-light {
         margin-bottom: 1rem;
     }
-
-    .navbar .d-flex {
-        margin-bottom: 1rem;
-    }
-
-    .borde {
-        margin-bottom: 10px;
-    }
 }
 
 @media (min-width: 992px) {

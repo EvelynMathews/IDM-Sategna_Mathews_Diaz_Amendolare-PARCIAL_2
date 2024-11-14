@@ -1,4 +1,3 @@
-// Array de productos
 const productos = [
     {
         nombre: "Caja Romántica",
@@ -307,7 +306,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `).join("");
 
-        productDetailContainer.innerHTML = `
+        if (productDetailContainer) {
+            productDetailContainer.innerHTML = `
             <div class="col-md-12 col-lg-10 mx-auto">
                 <div class="product-detail-card d-flex">
                     <!-- Columna izquierda con contenedor de información y carrusel -->
@@ -360,6 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
         `;
+        }
 
         // Selección de color
         const colorCircles = document.querySelectorAll(".color-option-circle");
@@ -372,7 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Agregar al carrito
-        document.querySelector(".add-to-cart").addEventListener("click", () => {
+        document.querySelector(".add-to-cart")?.addEventListener("click", () => {
             const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
             const personalMessage = document.getElementById("personalMessage").value;
             const productIndex = cartItems.findIndex(item => item.name === selectedProduct.nombre && item.color === selectedColor);
@@ -407,10 +408,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Selección del formulario
     const form = document.getElementById('contactForm');
-    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+    let successModalElement = document.getElementById('successModal');
+    const successModal = successModalElement ? new bootstrap.Modal(successModalElement) : null;
 
     // Evento de validación y envío del formulario
-    form.addEventListener('submit', function (event) {
+    form?.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
