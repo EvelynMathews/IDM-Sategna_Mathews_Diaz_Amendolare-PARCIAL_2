@@ -412,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const successModal = successModalElement ? new bootstrap.Modal(successModalElement) : null;
 
     // Evento de validación y envío del formulario
-    form.addEventListener('submit', function (event) {
+    form?.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
