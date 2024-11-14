@@ -9,13 +9,13 @@
 }
 
 /* Estilos para títulos y colores principales */
-body{
+body {
     background-color: #fffef4;
 }
 
-main{
-    min-height: calc(100vh - 200px); /* Ajusta 200px a la altura del header y footer combinados */
-    padding-bottom: 20px; /* Espacio extra para que no se superponga con el footer */
+main {
+    min-height: calc(100vh - 200px);
+    padding-bottom: 20px;
     box-sizing: border-box;
     max-width: 100%;
     overflow-x: hidden;
@@ -23,14 +23,15 @@ main{
 
 .titulo {
     color: #CC5147;
-    font-weight:bolder;
+    font-weight: bolder;
     font-family: "Merriweather";
     font-size: 40px;
 }
 
-h2, h3 {
+h2,
+h3 {
     font-family: "Merriweather";
-    font-weight:normal;
+    font-weight: normal;
     font-size: 25px;
     color: #CC5147;
 
@@ -129,6 +130,7 @@ h2, h3 {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -138,6 +140,7 @@ h2, h3 {
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
@@ -145,38 +148,35 @@ h2, h3 {
 
 /* INDEX - IMÁGENES */
 
-/* #carouselExampleIndicators .carousel-inner img {
-    width: 100%;
-    height: 600px; 
-    object-fit: cover; 
-} */
+.p-width{
+    max-width: 1000px; 
+    margin: 0 auto;
+    text-align: center;
+}
 
 .contenedor1 {
     width: 100%;
     margin: 0 auto;
 }
+
 @media (min-width: 1200px) {
     .contenedor1 {
         max-width: 1000px;
     }
 }
-/* .carousel-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    display: block; 
-} */
+
+
 
 /*  SECION PRODUCTOS */
-.bg-productos{
+.bg-productos {
     background-image: linear-gradient(rgb(255 255 255 / 84%), rgb(176 166 166 / 57%)), url(../img/productos/bg-productos.webp);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-            
+
 }
 
-.card-footer .btn-primary{
+.card-footer .btn-primary {
     border-radius: 24px;
 }
 
@@ -189,11 +189,11 @@ h2, h3 {
 }
 
 .card-footer .btn-secondary:hover {
-    background-color: #43464d; 
+    background-color: #43464d;
     color: #ffffff;
 }
 
-.modal-content{
+.modal-content {
     background-color: #F4F1DE;
 }
 
@@ -225,13 +225,13 @@ h2, h3 {
 
 .add-to-cart {
     background-color: #cc5147;
-    color:#fffefe;
+    color: #fffefe;
     border: none;
 }
 
 .add-to-cart:hover {
-    background-color: #c8473c; 
-    color: #000; 
+    background-color: #c8473c;
+    color: #000;
 }
 
 /* SECCIÓN CONTACTO */
@@ -262,7 +262,7 @@ h2, h3 {
     top: 15px;
 }
 
-.banner-full-width{
+.banner-full-width {
     background-image: linear-gradient(rgb(255 255 255 / 35%), rgb(176 166 166 / 0%)), url(../img/productos/pickandpack-regalo.webp);
     background-size: cover;
     background-position: center;
@@ -277,7 +277,7 @@ h2, h3 {
 
 /* SECCIÓN DETALLE DEL PRODUCTO */
 
-.titulo-detalle{
+.titulo-detalle {
     color: #cc5147;
     font-weight: bolder;
     font-family: "Merriweather";
@@ -285,12 +285,13 @@ h2, h3 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.detalle-producto-bg{
+.detalle-producto-bg {
     background-image: linear-gradient(rgb(255 255 255 / 84%), rgb(176 166 166 / 57%)), url(../img/productos/bg-productos.webp);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
+
 #productDetailContent {
     display: flex;
     justify-content: center;
@@ -299,7 +300,8 @@ h2, h3 {
 }
 
 .col-md-12.col-lg-10 {
-    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    max-width: 1200px;
+    /* Ancho máximo para pantallas grandes */
 }
 
 .product-detail-card {
@@ -309,11 +311,11 @@ h2, h3 {
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    max-width: 100%; /* Ajuste para pantallas grandes */
+    max-width: 100%;
+    /*para pantallas grandes */
     background-color: #F4F1DE;
 }
 
-/* Columna izquierda con información y carrusel */
 .product-detail-left {
     width: 100%;
     padding: 20px;
@@ -336,15 +338,15 @@ h2, h3 {
     text-align: left;
 }
 
-.product-detail-left .card-title{
+.product-detail-left .card-title {
     font-size: 30px;
-    color:#CC5147
+    color: #CC5147
 }
 
 
 /* Carrusel */
 #productCarousel {
-    margin-top: 15px; /* Margen superior para separar del texto */
+    margin-top: 15px;
 }
 
 .product-detail-card .carousel {
@@ -358,7 +360,7 @@ h2, h3 {
 .product-carousel-img {
     width: 100%;
     object-fit: cover;
-    border-radius: 8px 
+    border-radius: 8px
 }
 
 /* Ajuste de columnas en pantallas grandes */
@@ -383,13 +385,13 @@ h2, h3 {
 
 /* Espaciado en la columna de detalles adicionales */
 .product-detail-card-body {
-    padding: 20px; 
+    padding: 20px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
 }
 
-/* Opciones de color */
+/* color */
 .color-option-container {
     display: flex;
     gap: 8px;
@@ -421,7 +423,7 @@ h2, h3 {
     color: #CC5147;
 }
 
-.precio-caja{
+.precio-caja {
     font-size: x-large;
 }
 
@@ -436,16 +438,16 @@ h2, h3 {
 
 
 footer .bi-linkedin {
-    color: #333; 
+    color: #333;
     font-size: 1.5rem;
     transition: color 0.3s ease;
 }
 
 footer .bi-linkedin:hover {
-    color: #000; 
+    color: #000;
 }
 
-.foto-perfil img{
+.profile-pic {
     width: 250px;
 }
 
