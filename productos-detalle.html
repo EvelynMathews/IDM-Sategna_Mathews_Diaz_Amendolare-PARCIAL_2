@@ -66,11 +66,7 @@
                     </ul>
                     <!-- Formulario de búsqueda -->
                     <form class="d-flex order-2 order-lg-1" role="search">
-                        <input id="barraBusqueda" class="form-control me-2" type="search"
-                            list="opcionesBusquedaProductos" placeholder="Buscar producto" aria-label="Buscar">
-                        <datalist id="opcionesBusquedaProductos">
-                        </datalist>
-                        <button class="btn relleno bi-search" type="submit"></button>
+                        <div class="btn relleno bi-search" data-bs-toggle="modal" data-bs-target="#modalBusqueda"></div>
                     </form>
                 </div>
             </div>
@@ -82,6 +78,27 @@
         <h1 class="text-center mb-4 mt-4 titulo-detalle">Detalle del Producto</h1>
         <div class="container">
             <div id="productDetailContent" class="row"></div>
+        </div>
+
+        <!-- Modal busqueda -->
+        <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="input-group">
+                            <div class="btn btn-lg bi-search relleno"></div>
+                            <input id="barraBusquedaModal" class="form-control form-control-lg" type="search" placeholder="Buscar producto"
+                                   aria-label="Buscar">
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="coincidenciasBusqueda" class="container-fluid">
+                            <p><i>Empiece a escribir para obtener resultados</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Modal del Carrito -->

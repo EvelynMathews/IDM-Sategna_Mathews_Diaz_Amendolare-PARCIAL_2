@@ -150,31 +150,55 @@ document.querySelectorAll('.product-detail').forEach((button) => {
 });
 
 // barra de busqueda
-const barraBusqueda = document.querySelector("#barraBusqueda");
-// agregar opciones a la barra de busqueda
+const barraBusqueda = document.querySelector("#barraBusquedaModal");
+const cajaCoincidencias = document.querySelector("#coincidenciasBusqueda");
 barraBusqueda.addEventListener('input', () => {
     const valorInput = barraBusqueda.value.trim();
-    let optionsHTML = '';
+    let coincidenciasHTML = '<p><i>Empiece a escribir para obtener resultados</i></p>';
     if (valorInput) {
-        productos.forEach(p => {
-            if (p.nombre.toLowerCase().includes(valorInput.toLowerCase())) {
-                optionsHTML += `<option value="${p.nombre}" data-id="${p.id}"></option>`
-            }
+        coincidenciasHTML = '';
+        const maximoResultados = 3;
+        let resultados = productos
+            .filter(p => (p.nombre.toLowerCase().includes(valorInput.toLowerCase())))
+            .slice(0, maximoResultados);
+        if (resultados.length === 0) {
+            coincidenciasHTML = '<p>No se encontraron coincidencias</p>';
+        }
+        resultados
+            .forEach(p => {
+                coincidenciasHTML += `<div class="row align-items-center productoCoincidente p-2" data-id="${p.id}">
+                                <div class="col-2"><img src="${p.imagenes[0]}" class="img-thumbnail" /></div>
+                                <div class="col-10 fs-5"><span>${p.nombre}</span></div>
+                            </div>`
         })
     }
-    document.querySelector("#opcionesBusquedaProductos").innerHTML = optionsHTML;
+    cajaCoincidencias.innerHTML = coincidenciasHTML;
 })
-// ir a detalle al seleccionr una opción
-barraBusqueda.addEventListener('change', e => {
-    productoSeleccionado = document.querySelector("#opcionesBusquedaProductos")
-        .querySelector(`option[value="${e.target.value}"]`);
-    if (productoSeleccionado) {
-        localStorage.setItem('selectedProduct', JSON.stringify(productos.find(p => p.id == productoSeleccionado.getAttribute('data-id'))));
-        ruteActual = window.location.pathname
-        rutaBase = ruteActual.substring(0, ruteActual.lastIndexOf('/'));
-        window.location.href = `${rutaBase}/productos-detalle.html`;
-    }
+// Ir a detalle al seleccionar una coincidencia
+const observer = new MutationObserver((mutationsList, observer) => {
+    document.querySelectorAll(".productoCoincidente").forEach(el => el.addEventListener('click', (e) => {
+        let productoSeleccionado = e.currentTarget
+        if (productoSeleccionado) {
+            localStorage.setItem('selectedProduct', JSON.stringify(productos.find(p => p.id == productoSeleccionado.getAttribute('data-id'))));
+            ruteActual = window.location.pathname
+            rutaBase = ruteActual.substring(0, ruteActual.lastIndexOf('/'));
+            window.location.href = `${rutaBase}/productos-detalle.html`;
+        }
+    }))
+});
+observer.observe(cajaCoincidencias, {
+    childList: true,
+    subtree: true,
+    characterData: true
+});
+// Limpiar modal al cerrar
+const modalBusqueda = document.querySelector("#modalBusqueda");
+modalBusqueda.addEventListener('hidden.bs.modal', () => {
+    barraBusqueda.value = '';
+    cajaCoincidencias.innerHTML = '<p><i>Empiece a escribir para obtener resultados</i></p>';
 })
+
+
 
 // contenedor donde se van a mostrar los elementos del carrito
 const cartModalBody = document.querySelector("#cartModal .modal-body");
