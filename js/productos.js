@@ -1,4 +1,3 @@
-// Array de productos
 const productos = [
     {
         nombre: "Caja Romántica",
@@ -427,4 +426,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, false);
 })();
-
