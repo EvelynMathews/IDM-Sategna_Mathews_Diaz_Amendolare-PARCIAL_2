@@ -66,11 +66,12 @@
                     </div>
                     <!-- Formulario de búsqueda -->
                     <form class="d-flex order-2 order-lg-1" role="search">
-                        <input id="barraBusqueda" class="form-control me-2" type="search"
+                        <!-- <input id="barraBusqueda" class="form-control me-2" type="search"
                             list="opcionesBusquedaProductos" placeholder="Buscar producto" aria-label="Buscar">
                         <datalist id="opcionesBusquedaProductos">
                         </datalist>
-                        <button class="btn relleno bi-search" type="submit"></button>
+                        <button class="btn relleno bi-search" type="submit"></button> -->
+                        <div class="btn relleno bi-search" data-bs-toggle="modal" data-bs-target="#modalBusqueda"></div>
                     </form>
                 </div>
             </div>
@@ -94,40 +95,88 @@
         </div>
         <div class="container my-5">
             <div class="row justify-content-center">
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4 mb-4 agrandable">
                     <img src="./img/img-seccion-libre-joel/taza1.webp" class="img-fluid rounded"
                         alt="Taza personalizada">
                 </div>
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4 mb-4 agrandable">
                     <img src="./img/img-seccion-libre-joel/taza2.webp" class="img-fluid rounded"
                         alt="Otra taza personalizada">
                 </div>
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4 mb-4 agrandable">
                     <img src="./img/img-seccion-libre-joel/remera.webp" class="img-fluid rounded"
                         alt="Remera personalizada">
                 </div>
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4 mb-4 agrandable">
                     <img src="./img/img-seccion-libre-joel/toallas.webp" class="img-fluid rounded"
                         alt="Toallas personalizadas">
                 </div>
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4 mb-4 agrandable">
                     <img src="./img/img-seccion-libre-joel/llaveros.webp" class="img-fluid rounded"
                         alt="Llaveros personalizados">
                 </div>
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4 mb-4 agrandable">
                     <img src="./img/img-seccion-libre-joel/fundas.webp" class="img-fluid rounded"
                         alt="Fundas personalizadas">
                 </div>
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4 mb-4 agrandable">
                     <img src="./img/img-seccion-libre-joel/buso.webp" class="img-fluid rounded"
                         alt="Buso personalizado">
                 </div>
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4 mb-4 agrandable">
                     <img src="./img/img-seccion-libre-joel/agenda.webp" class="img-fluid rounded"
                         alt="Agenda personalizada">
                 </div>
             </div>
         </div>
+        <!-- Modal del Carrito -->
+        <!-- <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="seccion-libre.html">Sección Libre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                <-- Formulario de búsqueda -->
+        <!-- <form class="d-flex order-2 order-lg-1" role="search">
+                    <div class="btn relleno bi-search" data-bs-toggle="modal" data-bs-target="#modalBusqueda"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+<main> -->
+        <!-- <h1 class="text-center mb-4 mt-4 titulo-detalle">Proximamente</h1> -->
+
+        <!-- Modal busqueda -->
+        <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="input-group">
+                            <div class="btn btn-lg bi-search relleno"></div>
+                            <input id="barraBusquedaModal" class="form-control form-control-lg" type="search"
+                                placeholder="Buscar producto" aria-label="Buscar">
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="coincidenciasBusqueda" class="container-fluid">
+                            <p><i>Empiece a escribir para obtener resultados</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Modal del Carrito -->
         <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
