@@ -67,12 +67,7 @@
                     </ul>
                     <!-- Formulario de búsqueda -->
                     <form class="d-flex order-2 order-lg-1" role="search">
-                        <input id="barraBusqueda" class="form-control me-2" type="search" list="opcionesBusquedaProductos"
-                               placeholder="Buscar producto"
-                               aria-label="Buscar">
-                        <datalist id="opcionesBusquedaProductos">
-                        </datalist>
-                        <button class="btn relleno bi-search" type="submit"></button>
+                            <div class="btn relleno bi-search" data-bs-toggle="modal" data-bs-target="#modalBusqueda"></div>
                     </form>
                 </div>
             </div>
@@ -322,22 +317,41 @@
                                     vela aromática de jazmín, un set de jabones artesanales y un pequeño florero de
                                     cerámica.
                                     Ideal para llenar el ambiente de frescura y estilo natural.</p>
-                            </div>
-                            <div class="card-footer mt-auto text-center">
-                                <p class="price text-bold fs-4 mb-2">ARS $3,400</p>
-                                <div class="d-flex justify-content-center">
-                                    <button class="btn btn-primary me-2 add-to-cart" data-name="Caja de Flores y Aromas"
-                                            data-price="3400">Agregar al carrito
-                                    </button>
-                                    <a href="productos-detalle.html" class="btn btn-secondary product-detail"
-                                       data-id="9">Detalle de producto</a>
-                                </div>
+                        </div>
+                        <div class="card-footer mt-auto text-center">
+                            <p class="price text-bold fs-4 mb-2">ARS $3,400</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary me-2 add-to-cart" data-name="Caja de Flores y Aromas"
+                                    data-price="3400">Agregar al carrito</button>
+                                <a href="productos-detalle.html" class="btn btn-secondary product-detail"
+                                    data-id="9">Detalle de producto</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Modal busqueda -->
+        <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="input-group">
+                            <div class="btn btn-lg bi-search relleno"></div>
+                            <input id="barraBusquedaModal" class="form-control form-control-lg" type="search" placeholder="Buscar producto"
+                                   aria-label="Buscar">
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="coincidenciasBusqueda" class="container-fluid">
+                            <p><i>Empiece a escribir para obtener resultados</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Modal del Carrito -->
         <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
