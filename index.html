@@ -38,7 +38,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid d-flex justify-content-between align-items-center">
                 <a class="navbar-brand" href="index.html">
-                    <img src="./img/Logo-Pick&Pack.svg" alt="Logo de Pick & Pack" class="logo">
+                    <img src="./img/logo/Logo-Pick&Pack.svg" alt="Logo de Pick & Pack" class="logo">
                 </a>
                 <div class="d-flex order-lg-2 align-items-center icons-container">
                     <!-- Ícono de Carrito que activa el modal-->
@@ -68,11 +68,6 @@
                     </ul>
                     <!-- Formulario de búsqueda -->
                     <form class="d-flex order-2 order-lg-1" role="search">
-                        <!-- <input id="barraBusqueda" class="form-control me-2" type="search"
-                            list="opcionesBusquedaProductos" placeholder="Buscar producto" aria-label="Buscar">
-                        <datalist id="opcionesBusquedaProductos">
-                        </datalist>
-                        <button class="btn relleno bi-search" type="submit"></button> -->
                         <div class="btn relleno bi-search" data-bs-toggle="modal" data-bs-target="#modalBusqueda"></div>
                     </form>
                 </div>
@@ -166,7 +161,6 @@
                     ideal</button>
             </div>
         </section>
-
         <!-- Modal busqueda -->
         <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
@@ -174,8 +168,8 @@
                     <div class="modal-header">
                         <div class="input-group">
                             <div class="btn btn-lg bi-search relleno"></div>
-                            <input id="barraBusquedaModal" class="form-control form-control-lg" type="search" placeholder="Buscar producto"
-                                   aria-label="Buscar">
+                            <input id="barraBusquedaModal" class="form-control form-control-lg" type="search"
+                                placeholder="Buscar producto" aria-label="Buscar">
                         </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -187,7 +181,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Modal del Carrito -->
         <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

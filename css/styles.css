@@ -300,7 +300,6 @@ h3 {
 
 .col-md-12.col-lg-10 {
     max-width: 1200px;
-    /* Ancho máximo para pantallas grandes */
 }
 
 .product-detail-card {
@@ -311,7 +310,6 @@ h3 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     max-width: 100%;
-    /*para pantallas grandes */
     background-color: #F4F1DE;
 }
 
